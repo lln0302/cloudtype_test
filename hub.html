@@ -25,6 +25,38 @@
         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
     }
     </script>
+        <style>
+            #custom-popup {
+                display: none;
+                align-items: center;
+                justify-content: center;
+            }
+            #custom-popup-text {
+                top:100px;
+                width: 800px;
+                height: 600px;
+                border: 0;
+                z-index: 9999999;
+                opacity: 1;
+                position: fixed;
+                padding: 0px;
+            }
+            #custom-popup-mobile {
+                display: none;
+                align-items: center;
+                justify-content: center;
+            }
+            #custom-popup-text-mobile {
+                top: 80px;
+                width: 300px;
+                height: 400px;
+                border: 0;
+                z-index: 999999;
+                opacity: 1;
+                position: fixed;
+                padding: 0px;
+            }
+        </style>
     <style>
         /* Ease the transition to the load screen by displaying a default overlay */
         #preload-overlay {
@@ -49,41 +81,7 @@
             }
         }
     </style>
-    
-    <style>
-    #custom-popup{
-        display: none;
-        align-items: center;
-	    justify-content: center;
-    }
-    #custom-popup-text{            
-        top:100px;
-        width:800px;
-        height:600px;
-        border:0;
-        z-index:9999999;
-        opacity: 1;
-        position: fixed;
-        padding:0px;
-    }
-    #custom-popup-mobile{
-        display: none;
-        align-items: center;
-        justify-content: center;
-    }
-    #custom-popup-text-mobile{            
-        top:80px;
-        width:300px;
-        height:400px;
-        border:0;
-        z-index:9999999;
-        opacity: 1;
-        position: fixed;
-        padding:0px;
-    }
-    </style>
-    
-<link href="/assets/stylesheets/support-edbf2953e30ac0cba786.css" rel="stylesheet"><link href="/assets/stylesheets/hub-vendors-2c168f81acf498dcca6e.css" rel="stylesheet"><link href="/assets/stylesheets/hub-21cc7063409416922c23.css" rel="stylesheet"><script src="/assets/js/webxr-polyfill-297abbc3c74f53fb2a84.js"></script><script src="/assets/js/frontend-4b87ee7fccb755d47907.js"></script><script src="/assets/js/support-51d5e232c74ada917db6.js"></script><script src="/assets/js/engine-b713536b6b26447a4ae3.js"></script><script src="/assets/js/store-b4bde1f7325a0eb8a1eb.js"></script><script src="/assets/js/hub-vendors-22720416c4e986137a00.js"></script><script src="/assets/js/hub-d9de34521533ff6cf264.js"></script></head>
+<link href="/assets/stylesheets/support-edbf2953e30ac0cba786.css" rel="stylesheet"><link href="/assets/stylesheets/hub-vendors-2c168f81acf498dcca6e.css" rel="stylesheet"><link href="/assets/stylesheets/hub-21cc7063409416922c23.css" rel="stylesheet"><script src="/assets/js/webxr-polyfill-297abbc3c74f53fb2a84.js"></script><script src="/assets/js/frontend-4b87ee7fccb755d47907.js"></script><script src="/assets/js/support-51d5e232c74ada917db6.js"></script><script src="/assets/js/engine-b713536b6b26447a4ae3.js"></script><script src="/assets/js/store-b4bde1f7325a0eb8a1eb.js"></script><script src="/assets/js/hub-vendors-22720416c4e986137a00.js"></script><script src="/assets/js/hub-6db0906de347067fcbeb.js"></script></head>
 
 <body>
     <div id="support-root"></div>
@@ -373,7 +371,7 @@
                     <a-entity is-remote-hover-target tags="singleActionButton: true; isHoverMenuChild: true;" sprite icon-button="image: volume_up.png; hoverImage: volume_up-hover.png;" scale="0.075 0.075 0.075" position="0.275 0.14 0" class="ui video-volume-up-button"></a-entity>
                     <a-entity class="video-playback">
                         <a-entity is-remote-hover-target tags="singleActionButton: true; isHoverMenuChild: true;" sprite icon-button="image: seek_back.png; hoverImage: seek_back-hover.png;" scale="0.1 0.1 0.1" position="-0.3 -0.125 0" class="ui video-seek-back-button" visible="false"></a-entity>
-                        <a-entity is-remote-hover-target tags="singleActionButton: true; isHoverMenuChild: true;" sprite icon-button="image: pause.png; hoverImage: pause-hover.png; activeImage: play.png; activeHoverImage: play-hover.png" scale="0.15 0.15 0.15" position="0 -0.125 0" class="ui video-playpause-button" visible="false"></a-entity>
+                        <a-entity is-remote-hover-targetk tags="singleActionButton: true; isHoverMenuChild: true;" sprite icon-button="image: pause.png; hoverImage: pause-hover.png; activeImage: play.png; activeHoverImage: play-hover.png" scale="0.15 0.15 0.15" position="0 -0.125 0" class="ui video-playpause-button" visible="false"></a-entity>
                         <a-entity is-remote-hover-target tags="singleActionButton: true; isHoverMenuChild: true;" sprite icon-button="image: seek_fwd.png; hoverImage: seek_fwd-hover.png;" scale="0.1 0.1 0.1" position="0.3 -0.125 0" class="ui video-seek-forward-button" visible="false"></a-entity>
                     </a-entity>
                     <a-entity class="ui video-link-button" visible="false" mixin="rounded-text-action-button ui" is-remote-hover-target tags="singleActionButton: true; isHoverMenuChild: true;" open-media-button scale="0.8 0.8 0.8" position="0 -0.300 0.001">
@@ -640,10 +638,10 @@
 
     <div id="ui-root"></div>
     <div id="preload-overlay"></div>
-    <div id="custom-popup">
+    <div id="custom-popup">   
         <div id="custom-popup-text"></div>
     </div>
-    <div id="custom-popup-mobile">
+    <div id="custom-popup-moblie">
         <div id="custom-popup-text-mobile"></div>
     </div>
 </body>
