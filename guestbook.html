@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="./inc/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<title>Guest book</title>
+</head>
+<body>
+
+<!-- Modal -->
+<div id="deleteModal" class="modal fade" tabindex="-1" role="dialog">
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+<div class="modal-header">
+	<h5 class="modal-title" id="deleteModalLabel">Delete Message</h5>
+	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+	<input type="hidden" id="modalNo" value=""/>
+	<input type="password" id="modalPassword" placeholder="Password" aria-label="Password" maxLength="10">
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<button type="button" class="btn btn-primary" onClick="fnDeleteModal();">Delete</button>
+</div>
+</div>
+</div>
+</div>
+
+<main class="container py-2">
+	<!--<div style="display: flex; justify-content: space-between;">
+		<h2 class="fw-bold mb-0">Guest book</h2>
+		<span style="margin-top:10px;"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></span>
+	</div>
+
+	<hr class="my-3">-->
+
+	<div class="px-3 py-2 border-bottom mb-3">
+		
+		<form class="row gy-2 gx-3" id="xform">
+		<input type="hidden" id="inPage" value="1"/>
+			<div class="col-md-6">
+				<input type="text" name="name" id="inName" class="form-control" placeholder="Name" aria-label="Name">
+			</div>
+			<div class="col-md-6">
+				<input type="password" name="passwd" id="inPassword" class="form-control" placeholder="Password" aria-label="Password" maxLength="10">
+			</div>
+			<div class="col-md-10">
+				<input type="text" name="message" id="inMessage" class="form-control" placeholder="Message..." aria-label="Message">
+			</div>
+			<div class="col-md-2 text-end">
+				<button type="button" class="btn btn-secondary me-2" id="fnWrite">Write</button>
+			</div>
+		</form>
+
+		<div class="container d-flex flex-wrap justify-content-center">
+
+			<form class="col-12">
+				<div class="col-md-3">
+					
+				</div>
+				<div class="col-md-3">
+					
+				</div>
+				
+				<div class="col-md-3">
+				</div>
+			</form>
+
+			<div class=""></div>
+		</div>
+	</div>
+
+	<div class="row" id='memos'></div>
+
+	<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+		<button type="button" class="btn btn-outline-secondary btn-sm px-4" onClick="fnLoad();">Load More</button>
+	</div>
+</main>
+
+<script src="./inc/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="./inc/jquery.min.js" crossorigin="anonymous"></script>
+
+<input type="hidden" id="cnt" value="1">
+<script>
+function fnLoad(){
+	var no = $("#inPage").val();
+	var num = parseInt(no) + 1;
+	$("#inPage").val(num);
+	fnGuestBookLoad(num);
+}
+
+function fnGuestBookLoad(page){
+	var param = "act=list&page=" + page;
+	$.ajax({
+		url:"./_api_guestbook_result.php",
+		type:"POST",
+		cache:false,
+		data : param,
+		dataType : "json",
+		success: function (result) {
+			if(result.state == 'success'){
+				var datas = result.datas;
+				if(result.totalCount == 0) {
+					alert('There is no more data.');
+					return;
+				}
+
+				for(var i = 0; i < datas.length; i ++){
+					var row = datas[i].split("##");					
+					var html = '';
+					html += '<div class="col-sm-6 col-lg-4 mb-4">';
+					html +=	'	<div class="card p-3">';
+					html += '		<figure class="p-0 mb-0">';
+					html += '			<blockquote class="blockquote">' + row[2] + '</blockquote>';
+					html += '			<figcaption class="blockquote-footer mb-0 text-muted text-end"> <cite title="Source Title"><span style="cursor:pointer;" onClick="fnOpenModal('+row[0]+');">' + row[1] + '</span></cite></figcaption>';
+					html += '		</figure>';
+					html +=	'	</div>';
+					html += '</div>';
+					$('#memos').append(html);
+				}
+			} else {
+				alert('ERROR 1');
+			}
+		},
+		error: function (){
+			alert('ERROR 2');
+		}
+	});
+}
+	
+function fnOpenModal(no){
+	$('#modalNo').val(no);
+	$('#deleteModal').modal('show');
+};
+
+function fnDeleteModal(){
+	if($('#modalPassword').val() == ''){
+		alert('Please enter Password');
+		return;
+	}
+	var param = "act=delete&modalNo=" + $('#modalNo').val() + "&modalPassword=" + $('#modalPassword').val();
+	$.ajax({
+		url:"./_api_guestbook_result.php",
+		type:"POST",
+		cache:false,
+		data : param,
+		dataType : "json",
+		success: function (result) {
+			if(result.state == 'success'){
+				document.location.reload();
+			} else if(result.state == 'password'){
+				alert('Wrong Password');
+			} else {
+				alert('ERROR 1');
+			}
+		},
+		error: function (){
+			alert('ERROR 2');
+		}
+	});
+	$("#deleteModal").modal('hide');
+}
+
+$(document).ready(function() { 
+	fnGuestBookLoad(1);
+
+	$('#fnWrite').click(function(){ 
+		if($('#inName').val()=='') { alert('Please enter Name'); $('#inName').focus(); return; } 
+		if($('#inPassword').val()=='') { alert('Please enter Password'); $('#inPassword').focus(); return; }
+		if($('#inMessage').val()=='') { alert('Please enter Message'); $('#inMessage').focus(); return; }
+			
+		var param = "inName=" + $('#inName').val() + "&inPassword=" + $('#inPassword').val() + "&inMessage=" + $('#inMessage').val();
+		$.ajax({
+			url:"./_api_guestbook_result.php",
+			type:"POST",
+			cache:false,
+			data : param,
+			dataType : "json",
+			success: function (result) {
+				if(result.state == 'success'){
+					document.location.reload();
+				} else {
+					alert('ERROR 1');
+				}
+			},
+			error: function (){
+				alert('ERROR 2');
+			}
+		});
+	});
+
+});
+</script>
+</body>
+</html>
