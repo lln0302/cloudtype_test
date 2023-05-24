@@ -4,7 +4,7 @@
     <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
     <script>
         const IMP = window.IMP; 
-        IMP.init("imp32640503"); 
+        IMP.init("imp67011510"); 
       
         var today = new Date();   
         var hours = today.getHours(); // 시
@@ -16,7 +16,7 @@
 
         function requestPay() {
             IMP.request_pay({
-                pg : 'html5_inicis.{INIpayTest}',
+                pg : 'kcp',
                 pay_method : 'card',
                 merchant_uid: "IMP"+makeMerchantUid, 
                 name : '당근 10kg',
