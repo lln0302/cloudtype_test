@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="ticket.css" type="text/css" rel="stylesheet">
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+    <script>
+        const IMP = window.IMP; 
+        IMP.init("imp32640503"); 
+      
+        var today = new Date();   
+        var hours = today.getHours(); // 시
+        var minutes = today.getMinutes();  // 분
+        var seconds = today.getSeconds();  // 초
+        var milliseconds = today.getMilliseconds();
+        var makeMerchantUid = hours +  minutes + seconds + milliseconds;
+        
+
+        function requestPay() {
+            IMP.request_pay({
+                pg : 'kcp',
+                pay_method : 'card',
+                merchant_uid: "IMP"+makeMerchantUid, 
+                name : '당근 10kg',
+                amount : 15000,
+                buyer_email : 'Iamport@chai.finance',
+                buyer_name : '아임포트 기술지원팀',
+                buyer_tel : '010-1234-5678',
+                buyer_addr : '서울특별시 강남구 삼성동',
+                buyer_postcode : '123-456'
+            }, function (rsp) { // callback
+                if (rsp.success) {
+                    console.log(rsp);
+                } else {
+                    console.log(rsp);
+                }
+            });
+        }
+    </script>
+    <meta charset="UTF-8">
+    <title>Sample Payment</title>
+</head>
+<body>
+    <header>
+        <div id = "header">
+            <img src = "img/app-logo.png">
+        </div>
+    </header>
+    <article>
+        <div id = "banner">
+            <img src = "img/배너.png">
+        </div>
+        <h1>공연중인 연극</h1>
+        <div id="play-list">
+            <div class="play-card">
+                <div>
+                    <img class="play-img" src="img/공연1.gif">
+                </div>
+            </div>
+            <div class="play-info">
+                <div class="onAirTag">
+                    <span id="onAirTag"> 예매중 </span>
+                </div>
+                <a class="name">청소년 연극 <사춘기 메들리> </a>
+                <div class="play-detail">
+                    <ul>
+                        <li>
+                            <span>장르 :</span>
+                            <span>연극</span>
+                        </li>
+                        <li>
+                            <span>일시 :</span>
+                            <span>2023.10.01 ~ 2023.12.31</span>
+                        </li>
+                        <li>
+                            <span>등급 :</span>
+                            <span>만 7세 이상</span>
+                        </li>
+                        <li>
+                            <span>관람시간 :</span>
+                            <span>100분</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="play-card">
+                <div>
+                    <img class="play-img" src="img/공연2_p.gif">
+                </div>
+            </div>
+            <div class="play-info">
+                <div class="onAirTag">
+                    <span id="onAirTag"> 예매중 </span>
+                </div>
+                <a class="name">의자고치는 소녀</a>
+                <div class="play-detail">
+                    <ul>
+                        <li>
+                            <span>장르 :</span>
+                            <span>연극</span>
+                        </li>
+                        <li>
+                            <span>일시 :</span>
+                            <span>2023.10.01 ~ 2023.12.31</span>
+                        </li>
+                        <li>
+                            <span>등급 :</span>
+                            <span>만 7세 이상</span>
+                        </li>
+                        <li>
+                            <span>관람시간 :</span>
+                            <span>100분</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>      
+        </div>
+    </article>
+    <footer></footer>
+    <!-- <button onclick="requestPay()">결제하기</button>  결제하기 버튼 생성 --> 
+</body>
+<script>
+    let plays = [
+      {
+        name : "청소년 연극 <사춘기 메들리>",
+        price : 15000,
+        genre : "연극",
+        date : "2023.10.01 ~ 2023.12.31",
+        rate : "만 7세 이상",
+        running : "100분",
+        imageUrl : "img/공연1.gif",
+      },
+    ];
+    
+    document.querySelector("#play-list").innerHTML = "<p>ncomz</p>";
+</script>
+</html>
