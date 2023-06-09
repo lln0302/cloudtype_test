@@ -9,52 +9,14 @@
   <!-- 추가된 Firebase 스크립트 -->
   <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-database.js"></script>
 
   <script>
-    // Firebase 설정 정보
-    const firebaseConfig = {
-      apiKey: "AIzaSyD23BNt_CZ43ZasIVS3P_vMRFs6cW6TEr0",
-      authDomain: "fire-test-mozilla.firebaseapp.com",
-      databaseURL: "https://fire-test-mozilla-default-rtdb.firebaseio.com",
-      projectId: "fire-test-mozilla",
-      storageBucket: "fire-test-mozilla.appspot.com",
-      messagingSenderId: "169534096470",
-      appId: "1:169534096470:web:5bcd6ebfd76a311ee6e7f7",
-      measurementId: "G-ERQ3SDV3ZK"
-    };
-    
-    // Firebase 초기화
-    firebase.initializeApp(firebaseConfig);
-    
     Kakao.init('230ec1c3b4257be3358f7860a79d8416'); // 사용하려는 앱의 JavaScript 키 입력
     console.log(Kakao.isInitialized());
-
-    // Kakao 인증 처리 함수
+    
     function loginWithKakao() {
       Kakao.Auth.authorize({
-        success: function(authObj) {
-          // Kakao 인증 성공 후 Firebase에 로그인
-          var accessToken = authObj.access_token;
-          var credential = firebase.auth.OAuthProvider.credential('kakao.com', accessToken);
-
-          firebase.auth().signInWithCredential(credential)
-            .then(function(result) {
-              // Firebase 로그인 성공 후 처리할 작업
-              console.log("Firebase 로그인 성공");
-              console.log(result);
-            })
-            .catch(function(error) {
-              // Firebase 로그인 실패 시 처리할 작업
-              console.log("Firebase 로그인 실패");
-              console.log(error);
-            });
-        },
-        fail: function(error) {
-          // Kakao 인증 실패 시 처리할 작업
-          console.log("Kakao 인증 실패");
-          console.log(error);
-        }
+        redirectUri: 'https://metatest.nztoverse.com',
       });
     }
   </script>
