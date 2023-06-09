@@ -26,52 +26,6 @@
     <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222"
     alt="카카오 로그인 버튼" />  
   </a>
-    <!-- <a id="kakao-login-btn" href="javascript:loginWithKakao()">
-        <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222"
-          alt="카카오 로그인 버튼" />
-    </a>
-    <p id="token-result"></p>
-    
-    <script>
-        function loginWithKakao() {
-            Kakao.Auth.authorize({
-                redirectUri: 'https://metatest.nztoverse.com',
-          });
-       }
-  </script> -->
-  <!-- <script>
-    function loginWithKakao() {
-        Kakao.Auth.authorize({
-            redirectUri: 'https://metatest.nztoverse.com',
-            success: function(authObj) {
-              // Kakao 인증 성공 후 Firebase에 로그인
-              var credential = firebase.auth.OAuthProvider.credential(
-                "kakao.com", 
-                authObj.access_token
-              );
-              
-              firebase.auth().signInWithCredential(credential)
-                .then(function(result) {
-                  // Firebase 로그인 성공 후 처리할 작업
-                  console.log("Firebase 로그인 성공");
-                  console.log(result);
-                  document.getElementById("token-result").textContent = "로그인에 성공했습니다.";
-                })
-                .catch(function(error) {
-                  // Firebase 로그인 실패 시 처리할 작업
-                  console.log("Firebase 로그인 실패");
-                  console.log(error);
-                  document.getElementById("token-result").textContent = "로그인에 실패했습니다.";
-                });
-            },
-            fail: function(error) {
-              // Kakao 인증 실패 시 처리할 작업
-              console.log("Kakao 인증 실패");
-              console.log(error);
-              document.getElementById("token-result").textContent = "인증에 실패했습니다.";
-            }
-      });
-   }
-</script> -->
+  <p id="token-result"></p>
 </body>
 </html>
