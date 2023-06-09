@@ -121,7 +121,7 @@
     <!-- <button onclick="requestPay()">결제하기</button>  결제하기 버튼 생성 --> 
 </body>
 <script>
-    let plays = [
+    var plays = [
       {
         name : "청소년 연극 <사춘기 메들리>",
         price : 15000,
@@ -133,6 +133,62 @@
       },
     ];
     
-    document.querySelector("#play-list").innerHTML = "<p>ncomz</p>";
+    var playsHtml = "";
+    for (let i=0; i<plays.length; i++) {
+        var plays = plays[i];
+        playsHtml = 
+        '<div class="play-card">'
+            +'<div>'
+                +'<img class="play-img" src="'
+                + plays.imageUrl
+                +'"/>'
+            +'</div>'
+        +'</div>'
+        +'<div class="play-info">'
+            +'<div class="onAirTag">'
+                +'<span id="onAirTag"> 예매중 </span>'
+            +'</div>'
+            +'<a class="name">'
+                + plays.name
+            +'</a>'
+            +'<div class="play-detail">'
+                +'<ul>'
+                    +'<li>'
+                    +'<span>장르 :</span>'
+                    +'<span>'
+                            +plays.genre
+                        +'</span>'
+                    +'</li>'
+                    +'<li>'
+                        +'<span>일시 :</span>'
+                        +'<span>'
+                            +plays.date
+                        +'</span>'
+                    +'</li>'
+                    +'<li>'
+                        +'<span>등급 :</span>'
+                        +'<span>'
+                            + plays.rate
+                        +'</span>'
+                    +' </li>'
+                    +' <li>'
+                        +'<span>관람시간 :</span>'
+                        +'<span>'
+                            +plays.running
+                        +'</span>'
+                    +'</li>'
+                    +' <li>'
+                        +'<span>가격 :</span>'
+                        +'<span>'
+                            +plays.price
+                        +'</span>'
+                    +'</li>'
+                +' </ul>'
+            +'</div>'
+        +'</div>'
+    }
+
+    document.querySelector("#play-list").innerHTML = playsHtml;
+
 </script>
 </html>
