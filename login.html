@@ -32,7 +32,7 @@
 
     // Kakao 인증 처리 함수
     function loginWithKakao() {
-      Kakao.Auth.login({
+      Kakao.Auth.authorize({
         success: function(authObj) {
           // Kakao 인증 성공 후 Firebase에 로그인
           var accessToken = authObj.access_token;
