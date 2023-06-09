@@ -44,29 +44,19 @@
     // Kakao 로그인 처리 함수
     function loginWithKakao() {
       Kakao.Auth.authorize({
-        success: function(authObj) {
-          var accessToken = authObj.access_token;
-          // 사용자 정보 요청
-          Kakao.API.request({
+        redirectUri: 'https://metatest.nztoverse.com/login.html',
+      });
+      Kakao.API.request({
             url: '/v2/user/me',
-            success: function(response) {
-              var email = response.kakao_account.email;
+            data: {
+              property_keys: ['kakao_account.email', 'kakao_account.g]nickname'],
+            },
+      })
+      var email = response.kakao_account.email;
               var nickname = response.properties.nickname;
               // 이메일과 닉네임 출력
               document.getElementById('email').innerText = '이메일: ' + email;
               document.getElementById('nickname').innerText = '닉네임: ' + nickname;
-            },
-            fail: function(error) {
-              console.log("Kakao 사용자 정보 요청 실패");
-              console.log(error);
-            }
-          });
-        },
-        fail: function(error) {
-          console.log("Kakao 로그인 실패");
-          console.log(error);
-        }
-      });
     }
   </script>
 </head>
