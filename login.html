@@ -1,41 +1,16 @@
-<!doctype html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <title> 로그인</title>
-  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js"
-    integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script>
-    Kakao.init('230ec1c3b4257be3358f7860a79d8416'); // 사용하려는 앱의 JavaScript 키 입력
-    console.log(Kakao.isInitialized());
-    
-    function loginWithKakao() {
-      Kakao.Auth.authorize({
-        redirectUri: 'https://metatest.nztoverse.com',
-      });
-
-    Kakao.API.request({
-      url: '/v2/user/me',
-      data: {
-        property_keys: ['kakao_account.email', 'kakao_account.gender'],
-      },
-    })
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-    }
-  </script>
-</head>
-<body>
-  <a href="javascript:loginWithKakao()">
-    <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222"
-    alt="카카오 로그인 버튼" />  
-  </a>
-  <p id="token-result"></p>
-</body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="login.js"></script>
+  </head>
+  <body>
+    <div id="login_div" class="centered">
+      <h3>로그인</h3>
+      <input type="email" id="email_field" placeholder="이메일">
+      <input type="password" id="password_field" placeholder="비밀번호">
+      <button onclick="login()">로그인</button>
+    </div>
+  </body>
 </html>
-
