@@ -1,109 +1,148 @@
 <!DOCTYPE html>
-<html lang="zxx"><head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>문화관광축제</title>
-<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="_inc/plugins.css">
-<link rel="stylesheet" href="_inc/style.css?5">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1,">
+  <link th:href="@{/css/import.css}" rel="stylesheet">
+  <title>초록씨어터</title>
+  <script th:src="@{/js/plugins/jquery-3.6.0.js}"></script>
+  <script th:src="@{/js/common.js}"></script>
 </head>
-
-<body class="  pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
-  <div class="pace-progress-inner"></div>
-</div>
-<div class="pace-activity"></div></div>
-
-    <!-- ==================== Start testimonials ==================== -->
-
-    <section class="testimonials section-padding parallaxie" style="background-image: none; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; background-position: center 0px;">
-        <div class="container position-re">
-            <div class="sec-head custom-font text-center">
-                <h5 class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;"><b>&lt;문화관광축제&gt;</b></h5>
-            </div>
-            <div class="row justify-content-center wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                <div class="col-lg-8">
-                    <div class="slic-item slick-initialized slick-slider slick-dotted">
-                        <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 770px; transform: translate3d(0px, 0px, 0px);"><div class="item slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide00" aria-describedby="slick-slide-control00" style="width: 740px;">
-							<div align="center"><img src="_inc/Tuto_PC.png" style="width:60%"></div>
-                        </div></div></div>
-                    <ul class="slick-dots" role="tablist"><li class="slick-active" role="presentation"><button type="button" role="tab" id="slick-slide-control00" aria-controls="slick-slide00" aria-label="1 of 1" tabindex="0" aria-selected="true">1</button></li></ul></div>
+<body id="Watching">
+	<div th:replace = "fragments/header"></div>
+  <section>
+    <div class="wrap">
+      <div class="path_wrap">
+        <a th:href="@{/main}"><i class="icon_home"></i></a>
+        <span>/</span>
+        <a th:href="@{/watching}">관람하기</a>
+      </div>
+      <div class="tit_type_03">
+        <h1>관람하기</h1>
+        <p>초록씨어터 메타버스 공연장에서 실감나는 공연을 관람해보세요!</p>
+      </div>
+      <div class="content_wrap">
+        <div class="content_info">
+          <div class="content">
+            <i class="icon_admission"></i>
+            <h5>공연장 입장</h5>
+            <p>
+              구입 일로 부터 <em>7일간</em><br>
+              접속 및 관람이 가능합니다.
+            </p>
+          </div>
+          <i class="icon_line"></i>
+          <div class="content">
+            <i class="icon_performance_time"></i>
+            <h5>공연 시간</h5>
+            <p>
+              <em>매일</em> 09:00, 11:00,<br>
+              13:00, 15:00, 17:00
+            </p>
+          </div>
+        </div>
+        <div class="performance_info">
+          <div class="performance">
+            <a href="#">
+              <img src="../img/image/watching_img_02.png">
+              <div class="txt">
+                <p>공연장1</p>
+                <div class="user">
+                  <i class="icon_user"></i>
+                  <span>1/25</span>
                 </div>
-            </div>
+              </div>
+            </a>
+          </div>
+          <div class="performance">
+            <a href="#">
+              <img src="../img/image/watching_img_02.png">
+              <div class="txt">
+                <p>공연장2</p>
+                <div class="user">
+                  <i class="icon_user"></i>
+                  <span>1/25</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="performance">
+            <a href="#">
+              <img src="../img/image/watching_img_02.png">
+              <div class="txt">
+                <p>공연장3</p>
+                <div class="user">
+                  <i class="icon_user"></i>
+                  <span>1/25</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="performance">
+            <a href="#">
+              <img src="../img/image/watching_img_03.png">
+              <div class="txt">
+                <p>공연장4</p>
+                <div class="user">
+                  <i class="icon_user"></i>
+                  <span>1/25</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="performance">
+            <a href="#">
+              <img src="../img/image/watching_img_03.png">
+              <div class="txt">
+                <p>공연장5</p>
+                <div class="user">
+                  <i class="icon_user"></i>
+                  <span>1/25</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="performance">
+            <a href="#">
+              <img src="../img/image/watching_img_03.png">
+              <div class="txt">
+                <p>공연장6</p>
+                <div class="user">
+                  <i class="icon_user"></i>
+                  <span>1/25</span>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
-    </section>
+      </div>
+      <div class="list_sub_txt">
+        <p>한 공간에 최대 25명 접속이 가능합니다.</p>
+        <p>서울 혜화동에 위치한 초록시어터 연극 공연장을 “2023년 NIPA 의 창작메타버스 사업”을 지원받아 실감 스캔하여 공간을 구성하였습니다.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- ==================== End testimonials ==================== -->
-
-
-
-    <!-- ==================== Start Works ==================== -->
-    <section class="portfolio ">
-        <div class="container">
-            <div class="row">
-
-                <!-- gallery -->
-                <div class="gallery full-width" style="position: relative; height: 898.5px;">
-                    <div class="col-md-6 items graphic  " style="position: absolute; left: 0px; top: 0px;">
-                        <div class="item-img">
-                            <a href="/pumba" class="imago wow animated" style="visibility: visible;">
-								<img src="https://metatour-4-assets.metatour.net/files/3ead9421-3378-43d3-bad8-878f6602860a.jpg" alt="image">
-							</a>
-                        </div>
-                        <div class="cont">
-							<button type="button" class="btn btn-success" onclick="location.href='/pumba'">음성 품바축제</button>
-                        </div>
-                    </div>
-                    <div class="col-md-6 items graphic  " style="position: absolute; left: 600px; top: 0px;">
-                        <div class="item-img">
-                            <a href="/wonju" class="imago wow animated" style="visibility: visible;">
-								<img src="https://metatour-4-assets.metatour.net/files/b8839f60-acb8-43c9-a65a-e133227a119e.jpg" alt="image">
-							</a>
-                        </div>
-                        <div class="cont">
-							<button type="button" class="btn btn-primary" onclick="location.href='/wonju'">원주 다이내믹댄싱카니발</button>
-                        </div>
-                    </div>
-                    <div class="col-md-6 items graphic  " style="position: absolute; left: 0px; top: 449px;">
-                        <div class="item-img">
-                            <a href="/index2.html" class="imago wow" style="visibility: hidden; animation-name: none;">
-								<img src="https://metatour-4-assets.metatour.net/files/051fa35b-cef0-4a77-b25e-d2019c8768a5.jpg" alt="image">
-							</a>
-                        </div>
-                        <div class="cont">
-							<button type="button" class="btn btn-warning" onclick="location.href='/index2.html'">진주 남강 유등축제</button>
-                        </div>
-                    </div>
-				</div>
-
-            </div>
-        </div>
-    </section>
-    <!-- ==================== End Works ==================== -->
-
-
-    <!-- ==================== Start Footer ==================== -->
-
-    <footer class="footer-half sub-bg pb-0">
-        <div class="container">
-            <div class="text-center" style="padding:10px 0;">
-                <p>Copyright ⓒ 2022. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-    <!-- ==================== End Footer ==================== -->
-
-    <script src="_inc/jquery-3.0.0.min.js"></script>
-    <script src="_inc/jquery-migrate-3.0.0.min.js"></script>
-    <script src="_inc/plugins.js"></script>
-    <script src="_inc/scripts.js?2"></script>
-
-
-
-
-
-</body></html>
+  <aside>
+    <div class="wrap">
+      <div class="right_btn">
+        <a th:href="@{/lookAround}" class="button_type_09">
+          <i class="icon_metaverse_w"></i>
+          <span>둘러보기!</span>
+        </a>
+      </div>
+      <div class="right_btn">
+        <a th:href="@{/watching}" class="button_type_09">
+          <i class="icon_view_w"></i>
+          <span>관람하기!</span>
+        </a>
+      </div>
+      <button class="up_btn">
+        <i class="ico_triangle"></i>
+        <span>TOP</span>
+      </button>
+    </div>
+  </aside>
+	<div th:replace = "fragments/footer :: footer"></div>
+</body>
+</html>
