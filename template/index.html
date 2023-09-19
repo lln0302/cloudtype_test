@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1,">
+  <link th:href="@{/css/import.css}" rel="stylesheet">
+  <title>초록씨어터</title>
+  <script th:src="@{/js/plugins/jquery-3.6.0.js}"></script>
+  <script th:src="@{/js/common.js}"></script>
+</head>
+<body id="Watching">
+	<div th:replace = "fragments/header"></div>
+  <section>
+    <div class="wrap">
+      <div class="path_wrap">
+        <a th:href="@{/main}"><i class="icon_home"></i></a>
+        <span>/</span>
+        <a th:href="@{/watching}">관람하기</a>
+      </div>
+      <div class="tit_type_03">
+        <h1>관람하기</h1>
+        <p>초록씨어터 메타버스 공연장에서 실감나는 공연을 관람해보세요!</p>
+      </div>
+      <div class="content_wrap">
+        <div class="content_info">
+          <div class="content">
+            <i class="icon_admission"></i>
+            <h5>공연장 입장</h5>
+            <p>
+              구입 일로 부터 <em>7일간</em><br>
+              접속 및 관람이 가능합니다.
+            </p>
+          </div>
+          <i class="icon_line"></i>
+          <div class="content">
+            <i class="icon_performance_time"></i>
+            <h5>공연 시간</h5>
+            <p>
+              <em>매일</em> 09:00, 11:00,<br>
+              13:00, 15:00, 17:00
+            </p>
+          </div>
+        </div>
+        <div class="performance_info">
+          <div class="performance">
+            <a href="#">
+              <img src="../img/image/watching_img_02.png">
+              <div class="txt">
+                <p>공연장1</p>
+                <div class="user">
+                  <i class="icon_user"></i>
+                  <span>1/25</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="performance">
+            <a href="#">
+              <img src="../img/image/watching_img_02.png">
+              <div class="txt">
+                <p>공연장2</p>
+                <div class="user">
+                  <i class="icon_user"></i>
+                  <span>1/25</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="performance">
+            <a href="#">
+              <img src="../img/image/watching_img_02.png">
+              <div class="txt">
+                <p>공연장3</p>
+                <div class="user">
+                  <i class="icon_user"></i>
+                  <span>1/25</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="performance">
+            <a href="#">
+              <img src="../img/image/watching_img_03.png">
+              <div class="txt">
+                <p>공연장4</p>
+                <div class="user">
+                  <i class="icon_user"></i>
+                  <span>1/25</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="performance">
+            <a href="#">
+              <img src="../img/image/watching_img_03.png">
+              <div class="txt">
+                <p>공연장5</p>
+                <div class="user">
+                  <i class="icon_user"></i>
+                  <span>1/25</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="performance">
+            <a href="#">
+              <img src="../img/image/watching_img_03.png">
+              <div class="txt">
+                <p>공연장6</p>
+                <div class="user">
+                  <i class="icon_user"></i>
+                  <span>1/25</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="list_sub_txt">
+        <p>한 공간에 최대 25명 접속이 가능합니다.</p>
+        <p>서울 혜화동에 위치한 초록시어터 연극 공연장을 “2023년 NIPA 의 창작메타버스 사업”을 지원받아 실감 스캔하여 공간을 구성하였습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <aside>
+    <div class="wrap">
+      <div class="right_btn">
+        <a th:href="@{/lookAround}" class="button_type_09">
+          <i class="icon_metaverse_w"></i>
+          <span>둘러보기!</span>
+        </a>
+      </div>
+      <div class="right_btn">
+        <a th:href="@{/watching}" class="button_type_09">
+          <i class="icon_view_w"></i>
+          <span>관람하기!</span>
+        </a>
+      </div>
+      <button class="up_btn">
+        <i class="ico_triangle"></i>
+        <span>TOP</span>
+      </button>
+    </div>
+  </aside>
+	<div th:replace = "fragments/footer :: footer"></div>
+</body>
+</html>
